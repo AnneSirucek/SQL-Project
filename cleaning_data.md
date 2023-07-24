@@ -27,6 +27,29 @@ productPrice	adjusted_price
 15190000		  15.19
 11200000		  11.20
 
+3.	The following query can be used to update the city column to change the value to null when the city name is not available.
+
+SELECT city, country,
+CASE 
+	WHEN city = 'not available in demo dataset' THEN NULL
+	WHEN city = '(not set)' THEN NULL
+	ELSE city
+END AS city
+FROM all_sessions_v2
+
+4.	The following query can be used to update  the country column to change the value to null when the country name is not available.
+
+SELECT country,
+CASE 
+	WHEN country = '(not set)' THEN NULL
+	ELSE country
+END AS country
+FROM all_sessions_v2
+
+5.	The following query can be used to update the date format to make it easier to read.
+   
+TO_CHAR (date, YYYY-MM-DD)
+FROM all_sessions_v2
 
 
 
